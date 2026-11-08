@@ -19,7 +19,7 @@ public class HotelManagementSystem extends JFrame {
         add(image);
         
         JLabel text = new JLabel("Hotel Management System");
-        text.setBounds(20, 10, 700, 130);
+        text.setBounds(20, 440, 700, 90);
         text.setForeground(Color.WHITE);
         text.setFont(new Font("serif",Font.BOLD,50));
         image.add(text);
@@ -32,6 +32,22 @@ public class HotelManagementSystem extends JFrame {
         image.add(next);
         
         setVisible(true);
+        while(true){
+            text.setVisible(false);
+            try{
+                Thread.sleep(500);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+            text.setVisible(true);
+            try{
+                Thread.sleep(500);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
     
     public static void main(String[] args) {
