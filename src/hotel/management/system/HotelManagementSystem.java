@@ -19,7 +19,8 @@ public class HotelManagementSystem extends JFrame {
         add(image);
         
         JLabel text = new JLabel("Hotel Management System");
-        text.setBounds(20, 440, 700, 90);
+        int width = text.getFontMetrics(new Font("serif",Font.BOLD,50)).stringWidth(text.getText());
+        text.setBounds(20, 440, width+10, 60);
         text.setForeground(Color.WHITE);
         text.setFont(new Font("serif",Font.BOLD,50));
         image.add(text);
