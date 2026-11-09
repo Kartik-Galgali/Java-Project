@@ -44,7 +44,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         add(rbmale);
         
         JRadioButton rbfemale = new JRadioButton("Female");
-        rbfemale.setBounds(280, 130, 90, 30);
+        rbfemale.setBounds(280, 130, 70, 30);
         rbfemale.setFont(new Font("Tahoma", Font.PLAIN, 14));
         rbfemale.setBackground(Color.white);
         add(rbfemale);
@@ -57,6 +57,12 @@ public class AddEmployee extends JFrame implements ActionListener {
         lbljob.setBounds(60,180,120,30);
         lbljob.setFont(new Font("Tahoma", Font.PLAIN, 17));
         add(lbljob);
+        
+        String [] str = {"Front Desk Clerks","Porters","Housekeeping","Kitchen Staff", "Room Service","Chefs","Waiter/Waitress","Manager","Accountant"};
+        JComboBox cdjob = new JComboBox(str);
+        cdjob.setBounds(200,180,150,30);
+        cdjob.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        add(cdjob);
         
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/tenth.jpg"));
         Image i2 = i1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
