@@ -4,10 +4,16 @@
  */
 package hotel.management.system;
 
-/**
- *
- * @author USER
- */
-public class Dashboard {
+import javax.swing.*;
+
+public class Dashboard extends JFrame {
+
+    public Dashboard() {
+        setBounds(0, 0, 1550, 1000);
+        setVisible(true);
+    }
     
+    public static void main(String[] args) {
+        new Dashboard();
+    }
 }
