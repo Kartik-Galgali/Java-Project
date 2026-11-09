@@ -42,6 +42,12 @@ public class Dashboard extends JFrame {
         JMenuItem addemployee = new JMenuItem("Add Employee");
         admin.add(addemployee);
         
+        JMenuItem addrooms = new JMenuItem("Add Rooms");
+        admin.add(addrooms);
+        
+        JMenuItem adddrivers = new JMenuItem("Add Drivers");
+        admin.add(adddrivers);
+        
         setBounds(0, 0, 1550, 1000);
         setVisible(true);
     }
