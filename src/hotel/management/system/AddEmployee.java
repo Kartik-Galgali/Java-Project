@@ -134,11 +134,6 @@ public class AddEmployee extends JFrame implements ActionListener {
         String email = tfemail.getText();
         String aadhar = tfaadhar.getText();
         
-        if (email.equals("") || !email.endsWith("@gmail.com") || !email.endsWith("@email.com")) {
-            JOptionPane.showMessageDialog(null, "Please Enter valid email id");
-            return;
-        }
-        
         String gender = null;
         
         if(rbmale.isSelected()){
@@ -152,7 +147,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         
         try {
             Conn c = new Conn();
-            String query = "Insert into employee values('"+name+"','"+age+"','"+gender+"','"+job+"','"+salary+"','"+phone+"','"+email+"','"+aadhar+"';";
+            String query = "insert into employee values('"+name+"','"+age+"','"+gender+"','"+job+"','"+salary+"','"+phone+"','"+email+"','"+aadhar+"');";
             c.s.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Employee Detail Succeffully added");
             setVisible(false);
