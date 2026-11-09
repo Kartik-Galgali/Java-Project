@@ -1,4 +1,3 @@
-
 package hotel.management.system;
 
 import java.awt.Color;

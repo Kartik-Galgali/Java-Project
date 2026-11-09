@@ -9,16 +9,40 @@ public class Dashboard extends JFrame {
         
         setLayout(null);
         
-        int width = Toolkit.getDefaultToolkit().getScreenSize().width; //Get default screen width
-        int height = Toolkit.getDefaultToolkit().getScreenSize().height; //Get default screen height
+//        int width = Toolkit.getDefaultToolkit().getScreenSize().width; //Get default screen width
+//        int height = Toolkit.getDefaultToolkit().getScreenSize().height; //Get default screen height
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/third.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+        Image i2 = i1.getImage().getScaledInstance(1550, 1000, Image.SCALE_DEFAULT);
         i1 = new ImageIcon(i2);
         JLabel image = new JLabel(i1);
-        image.setBounds(0, 0, width, height);
+        image.setBounds(0, 0, 1550, 1000);
         add(image);
         
-        setBounds(0, 0, width, height);
+        JLabel text = new JLabel("THE TAJ GROUP WELCOMES YOU");
+        text.setBounds(400, 60, 1000, 50);
+        text.setFont(new Font("Tahoma",Font.PLAIN,45));
+        text.setForeground(Color.WHITE);
+        image.add(text);
+        
+        JMenuBar mb = new JMenuBar();
+        mb.setBounds(0, 0, 1550, 30);
+        image.add(mb);
+        
+        JMenu hotel = new JMenu("Hotel Management");
+        hotel.setForeground(Color.red);
+        mb.add(hotel);
+        
+        JMenuItem reception = new JMenuItem("Reception");
+        hotel.add(reception);
+        
+        JMenu admin = new JMenu("Admin");
+        admin.setForeground(Color.blue);
+        mb.add(admin);
+        
+        JMenuItem addemployee = new JMenuItem("Add Employee");
+        admin.add(addemployee);
+        
+        setBounds(0, 0, 1550, 1000);
         setVisible(true);
     }
     
