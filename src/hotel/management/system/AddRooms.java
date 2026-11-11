@@ -3,7 +3,7 @@ package hotel.management.system;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class AddRooms extends JFrame implements ActionListener{
 
