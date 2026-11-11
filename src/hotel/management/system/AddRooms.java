@@ -6,8 +6,11 @@ import java.awt.event.*;
 
 public class AddRooms extends JFrame implements ActionListener{
 
+    JTextField tfroomno, tfprice;
+    JComboBox cbavailable,cbclean,cbbedtype;
+    JButton add, cancel;
+    
     AddRooms() {
-        
         getContentPane().setBackground(Color.WHITE);
         setBounds(330, 90, 940, 470);
         setLayout(null);
@@ -22,7 +25,7 @@ public class AddRooms extends JFrame implements ActionListener{
         lblroomno.setBounds(60, 80, 120, 30);
         add(lblroomno);
         
-        JTextField tfroomno = new JTextField();
+        tfroomno = new JTextField();
         tfroomno.setBounds(200, 80, 150, 30);
         add(tfroomno);
         
@@ -32,7 +35,7 @@ public class AddRooms extends JFrame implements ActionListener{
         add(lblavailable);
         
         String [] availableOptions = {"Available","Occupied"};
-        JComboBox cbavailable = new JComboBox(availableOptions);
+        cbavailable = new JComboBox(availableOptions);
         cbavailable.setBounds(200, 130, 150, 30);
         cbavailable.setBackground(Color.white);
         cbavailable.setFont(new Font("Tahoma",Font.PLAIN,16));
@@ -44,11 +47,46 @@ public class AddRooms extends JFrame implements ActionListener{
         add(lblclean);
         
         String [] clOptions = {"Cleaned","Dirty"};
-        JComboBox cbclean = new JComboBox(clOptions);
+        cbclean = new JComboBox(clOptions);
         cbclean.setBounds(200, 180, 150, 30);
         cbclean.setBackground(Color.white);
         cbclean.setFont(new Font("Tahoma",Font.PLAIN,16));
         add(cbclean);
+        
+        JLabel lblprice = new JLabel("Price");
+        lblprice.setFont(new Font("Tahoma",Font.PLAIN,16));
+        lblprice.setBounds(60, 230, 120, 30);
+        add(lblprice);
+        
+        tfprice = new JTextField();
+        tfprice.setBounds(200, 230, 150, 30);
+        add(tfprice);
+        
+        JLabel lblbedtype = new JLabel("Cleaning Status");
+        lblbedtype.setFont(new Font("Tahoma",Font.PLAIN,16));
+        lblbedtype.setBounds(60, 280, 120, 30);
+        add(lblbedtype);
+        
+        String [] bedtype = {"Single Bed","Double Bed"};
+        cbbedtype = new JComboBox(bedtype);
+        cbbedtype.setBounds(200, 280, 150, 30);
+        cbbedtype.setBackground(Color.white);
+        cbbedtype.setFont(new Font("Tahoma",Font.PLAIN,16));
+        add(cbbedtype);
+        
+        add = new JButton("Add Room");
+        add.setForeground(Color.WHITE);
+        add.setBackground(Color.BLACK);
+        add.setBounds(60, 330, 120, 30);
+        add.addActionListener(this);
+        add(add);
+        
+        cancel = new JButton("Cancel Room");
+        cancel.setForeground(Color.WHITE);
+        cancel.setBackground(Color.BLACK);
+        cancel.setBounds(200, 330, 120, 30);
+        cancel.addActionListener(this);
+        add(cancel);
         
         setVisible(true);
     }
@@ -58,7 +96,12 @@ public class AddRooms extends JFrame implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == add) {
+            
+        } else if(ae.getSource() == cancel) {
+            setVisible(false);
+            new Dashboard();
+        }
     }
 }

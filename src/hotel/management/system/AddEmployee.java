@@ -131,13 +131,56 @@ public class AddEmployee extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null, "Please Enter your name");
             return;
         }
+        
         String age = tfage.getText();
         if(age.equals("")){
             JOptionPane.showMessageDialog(null, "Please Enter Your");
         }
+        int a;
+        try {
+            a = Integer.parseInt(age);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Plese Enter Valid Age");
+            return;
+        }
+        if(a < 18){
+            JOptionPane.showMessageDialog(null, "You are not eligible");
+            return;
+        }
+        
         String salary = tfsalary.getText();
+        if (salary.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please Enter Your Salary");
+        }
+        
+        try {
+            Integer.parseInt(salary);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please Enter Valid Salary");
+            return;
+        }
+        
         String phone = tfphone.getText();
+        if (salary.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please Enter Your Mobile Number");
+            return;
+        }
+        else if(phone.length() != 10){
+            JOptionPane.showMessageDialog(null, "Invalid Mobile Number");
+            return;
+        }
+        
+        try {
+            Integer.parseInt(phone);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please Enter Valid Mobile Number");
+            return;
+        }
         String email = tfemail.getText();
+        if (email.equals("") || !(email.endsWith("@gmail.com")||email.endsWith("@email.com"))) {
+            JOptionPane.showMessageDialog(null, "Please Enter Valid Email Id");
+            return;
+        }
         String aadhar = tfaadhar.getText();
         
         String gender = null;
@@ -147,6 +190,9 @@ public class AddEmployee extends JFrame implements ActionListener {
         }
         else if(rbfemale.isSelected()){
             gender = "Female";
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please Select Gender");
         }
         
         String job = (String) cbjob.getSelectedItem();
