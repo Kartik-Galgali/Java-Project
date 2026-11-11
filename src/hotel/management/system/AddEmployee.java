@@ -109,7 +109,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         submit.setBounds(60, 430, 120, 30);
         submit.addActionListener(this);
         add(submit);
-        
+
         cancel = new JButton("Cancel");
         cancel.setForeground(Color.white);
         cancel.setBackground(Color.black);
@@ -133,104 +133,102 @@ public class AddEmployee extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == submit){
-        //Name
-        String name = tfname.getText();
-        if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter your name");
-            return;
-        }
+        if (ae.getSource() == submit) {
+            //Name
+            String name = tfname.getText();
+            if (name.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter your name");
+                return;
+            }
 
-        //Age
-        String age = tfage.getText();
-        if (age.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Your Age");
-            return;
-        }
-        int a;
+            //Age
+            String age = tfage.getText();
+            if (age.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Your Age");
+                return;
+            }
+            int a;
 
-        try {
-            a = Integer.parseInt(age);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Plese Enter Valid Age");
-            return;
-        }
-        if (a < 18) {
-            JOptionPane.showMessageDialog(null, "You are not eligible");
-            return;
-        }
+            try {
+                a = Integer.parseInt(age);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Plese Enter Valid Age");
+                return;
+            }
+            if (a < 18) {
+                JOptionPane.showMessageDialog(null, "You are not eligible");
+                return;
+            }
 
-        //Gender
-        String gender = null;
+            //Gender
+            String gender = null;
 
-        if (rbmale.isSelected()) {
-            gender = "Male";
-        } else if (rbfemale.isSelected()) {
-            gender = "Female";
-        } else {
-            JOptionPane.showMessageDialog(null, "Please Select Gender");
-            return;
-        }
+            if (rbmale.isSelected()) {
+                gender = "Male";
+            } else if (rbfemale.isSelected()) {
+                gender = "Female";
+            } else {
+                JOptionPane.showMessageDialog(null, "Please Select Gender");
+                return;
+            }
 
-        //Job
-        String job = (String) cbjob.getSelectedItem();
+            //Job
+            String job = (String) cbjob.getSelectedItem();
 
-        //Salary
-        String salary = tfsalary.getText();
-        if (salary.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Your Salary");
-            return;
-        }
+            //Salary
+            String salary = tfsalary.getText();
+            if (salary.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Your Salary");
+                return;
+            }
 
-        try {
-            Integer.parseInt(salary);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please Enter Valid Salary");
-            return;
-        }
+            try {
+                Integer.parseInt(salary);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please Enter Valid Salary");
+                return;
+            }
 
-        //Phone
-        String phone = tfphone.getText();
-        if (salary.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Your Mobile Number");
-            return;
-        } else if (phone.length() != 10) {
-            JOptionPane.showMessageDialog(null, "Invalid Mobile Number");
-            return;
-        } else {
-            for (int i = 0; i < phone.length(); i++) {
-                char ch = phone.charAt(i);
-                if (!(Character.isDigit(ch))) {
-                    JOptionPane.showMessageDialog(null, "Please Enter Valid Mobile Number");
-                    return;
+            //Phone
+            String phone = tfphone.getText();
+            if (salary.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Your Mobile Number");
+                return;
+            } else if (phone.length() != 10) {
+                JOptionPane.showMessageDialog(null, "Invalid Mobile Number");
+                return;
+            } else {
+                for (int i = 0; i < phone.length(); i++) {
+                    char ch = phone.charAt(i);
+                    if (!(Character.isDigit(ch))) {
+                        JOptionPane.showMessageDialog(null, "Please Enter Valid Mobile Number");
+                        return;
+                    }
                 }
             }
-        }
 
-        //Email
-        String email = tfemail.getText();
-        if (email.equals("") || !(email.endsWith("@gmail.com") || email.endsWith("@email.com"))) {
-            JOptionPane.showMessageDialog(null, "Please Enter Valid Email Id");
-            return;
-        }
+            //Email
+            String email = tfemail.getText();
+            if (email.equals("") || !(email.endsWith("@gmail.com") || email.endsWith("@email.com"))) {
+                JOptionPane.showMessageDialog(null, "Please Enter Valid Email Id");
+                return;
+            }
 
-        //Aadhar
-        String aadhar = tfaadhar.getText();
+            //Aadhar
+            String aadhar = tfaadhar.getText();
 
-        try {
-            Conn c = new Conn();
-            String query = "insert into employee values('" + name + "','" + age + "','" + gender + "','" + job + "','" + salary + "','" + phone + "','" + email + "','" + aadhar + "');";
-            c.s.executeUpdate(query);
-            JOptionPane.showMessageDialog(null, "Employee Detail Succeffully added");
-            setVisible(false);
-            new AddEmployee();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-       }
-        else if(ae.getSource() == cancel){
+            try {
+                Conn c = new Conn();
+                String query = "insert into employee values('" + name + "','" + age + "','" + gender + "','" + job + "','" + salary + "','" + phone + "','" + email + "','" + aadhar + "');";
+                c.s.executeUpdate(query);
+                JOptionPane.showMessageDialog(null, "Employee Detail Succeffully added");
+                new AddEmployee();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (ae.getSource() == cancel) {
             setVisible(false);
         }
-        
+
     }
 }
