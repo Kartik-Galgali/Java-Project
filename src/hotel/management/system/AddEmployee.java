@@ -23,6 +23,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         tfname = new JTextField();
         tfname.setBounds(200, 30, 150, 30);
+        tfname.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfname);
 
         JLabel lblage = new JLabel("AGE");
@@ -32,6 +33,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         tfage = new JTextField();
         tfage.setBounds(200, 80, 150, 30);
+        tfage.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfage);
 
         JLabel lblgender = new JLabel("GENDER");
@@ -74,6 +76,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         tfsalary = new JTextField();
         tfsalary.setBounds(200, 230, 150, 30);
+        tfsalary.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfsalary);
 
         JLabel lbphone = new JLabel("Phone");
@@ -83,6 +86,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         tfphone = new JTextField();
         tfphone.setBounds(200, 280, 150, 30);
+        tfphone.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfphone);
 
         JLabel lbemail = new JLabel("Email");
@@ -92,6 +96,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         tfemail = new JTextField();
         tfemail.setBounds(200, 330, 150, 30);
+        tfemail.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfemail);
 
         JLabel lbaadhar = new JLabel("Aadhar No.");
@@ -101,6 +106,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         tfaadhar = new JTextField();
         tfaadhar.setBounds(200, 380, 150, 30);
+        tfaadhar.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfaadhar);
 
         submit = new JButton("Submit");

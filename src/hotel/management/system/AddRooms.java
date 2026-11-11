@@ -13,7 +13,7 @@ public class AddRooms extends JFrame implements ActionListener {
 
     AddRooms() {
         getContentPane().setBackground(Color.WHITE);
-        setBounds(280, 250, 940, 470);
+        setBounds(280, 200, 940, 470);
         setLayout(null);
 
         JLabel heading = new JLabel("ADD ROOMS");
@@ -28,6 +28,7 @@ public class AddRooms extends JFrame implements ActionListener {
 
         tfroomno = new JTextField();
         tfroomno.setBounds(200, 80, 150, 30);
+        tfroomno.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfroomno);
 
         JLabel lblavailable = new JLabel("Available");
@@ -61,6 +62,7 @@ public class AddRooms extends JFrame implements ActionListener {
 
         tfprice = new JTextField();
         tfprice.setBounds(200, 230, 150, 30);
+        tfprice.setFont(new Font("Tahoma", Font.PLAIN, 16));
         add(tfprice);
 
         JLabel lblbedtype = new JLabel("Bed Type");
