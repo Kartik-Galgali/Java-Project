@@ -3,6 +3,7 @@ package hotel.management.system;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 
 public class AddRooms extends JFrame implements ActionListener{
 
@@ -111,11 +112,21 @@ public class AddRooms extends JFrame implements ActionListener{
             
             try {
                 Conn c = new Conn();
-                String query = "insert into room values('"+roomnumber+"','"+availability+"','"+cleaning+"','"+price+"','"+bedtype+"');";
-                c.s.executeUpdate(query);
+                String query = "Select * from room where roomnumber = '"+roomnumber+"';";
+                ResultSet rs = c.s.executeQuery(query);
+                if (!rs.next()) {
+                    String str = "insert into room values('"+roomnumber+"','"+availability+"','"+cleaning+"','"+price+"','"+bedtype+"');";
+                c.s.executeUpdate(str);
                 JOptionPane.showMessageDialog(null, "Room Details Entered Successfully");
                 setVisible(false);
                 new AddRooms();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Room Number already exist");
+                    return;
+                    
+                }
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
