@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class Dashboard extends JFrame implements ActionListener {
 
-    JMenuItem addemployee, addrooms;
+    JMenuItem addemployee, addrooms, adddrivers, reception;
 
     public Dashboard() {
 
@@ -35,7 +35,8 @@ public class Dashboard extends JFrame implements ActionListener {
         hotel.setForeground(Color.red);
         mb.add(hotel);
 
-        JMenuItem reception = new JMenuItem("Reception");
+        reception = new JMenuItem("Reception");
+        hotel.addActionListener(this);
         hotel.add(reception);
 
         JMenu admin = new JMenu("Admin");
@@ -50,7 +51,7 @@ public class Dashboard extends JFrame implements ActionListener {
         addrooms.addActionListener(this);
         admin.add(addrooms);
 
-        JMenuItem adddrivers = new JMenuItem("Add Drivers");
+        adddrivers = new JMenuItem("Add Drivers");
         admin.add(adddrivers);
 
         setBounds(0, 0, 1550, 1000);
@@ -64,10 +65,8 @@ public class Dashboard extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == addemployee) {
-            setVisible(false);
             new AddEmployee();
         } else if (ae.getSource() == addrooms) {
-            setVisible(false);
             new AddRooms();
         }
     }

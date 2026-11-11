@@ -230,7 +230,6 @@ public class AddEmployee extends JFrame implements ActionListener {
        }
         else if(ae.getSource() == cancel){
             setVisible(false);
-            new Dashboard();
         }
         
     }

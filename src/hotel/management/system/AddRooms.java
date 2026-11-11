@@ -13,7 +13,7 @@ public class AddRooms extends JFrame implements ActionListener{
     
     AddRooms() {
         getContentPane().setBackground(Color.WHITE);
-        setBounds(330, 90, 940, 470);
+        setBounds(280, 250, 940, 470);
         setLayout(null);
         
         JLabel heading = new JLabel("ADD ROOMS");
@@ -119,7 +119,6 @@ public class AddRooms extends JFrame implements ActionListener{
                 c.s.executeUpdate(str);
                 JOptionPane.showMessageDialog(null, "Room Details Entered Successfully");
                 setVisible(false);
-                new AddRooms();
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "Room Number already exist");
@@ -133,7 +132,6 @@ public class AddRooms extends JFrame implements ActionListener{
             
         } else if(ae.getSource() == cancel) {
             setVisible(false);
-            new Dashboard();
         }
     }
 }
