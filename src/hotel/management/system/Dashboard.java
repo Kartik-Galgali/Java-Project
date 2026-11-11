@@ -6,8 +6,7 @@ import java.awt.event.*;
 
 public class Dashboard extends JFrame implements ActionListener{
 
-    JMenuItem addemployee, addrooms;
-    JMenu home;
+    JMenuItem addemployee, addrooms, home;
     
     public Dashboard() {
         
@@ -36,6 +35,10 @@ public class Dashboard extends JFrame implements ActionListener{
         hotel.setForeground(Color.red);
         mb.add(hotel);
         
+        home = new JMenuItem("Home");
+        home.addActionListener(this);
+        hotel.add(home);
+        
         JMenuItem reception = new JMenuItem("Reception");
         hotel.add(reception);
         
@@ -54,11 +57,6 @@ public class Dashboard extends JFrame implements ActionListener{
         JMenuItem adddrivers = new JMenuItem("Add Drivers");
         admin.add(adddrivers);
         
-        home = new JMenu("Home");
-        home.addActionListener(this);
-        home.setForeground(Color.GREEN);
-        mb.add(home);
-        
         setBounds(0, 0, 1550, 1000);
         setVisible(true);
     }
@@ -69,7 +67,13 @@ public class Dashboard extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == addemployee){
+        
+        if(ae.getSource() == home){
+            setVisible(false);
+            new HotelManagementSystem();
+        }
+        
+        else if(ae.getSource() == addemployee){
             setVisible(false);
             new AddEmployee();
         }
@@ -77,9 +81,6 @@ public class Dashboard extends JFrame implements ActionListener{
             setVisible(false);
             new AddRooms();
         }
-        else if(ae.getSource() == home){
-            setVisible(false);
-            new HotelManagementSystem();
-        }
+        
     }
 }

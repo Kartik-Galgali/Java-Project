@@ -8,7 +8,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
     JTextField tfname, tfage, tfsalary, tfphone, tfemail, tfaadhar;
     JRadioButton rbmale, rbfemale;
-    JButton submit;
+    JButton submit, cancel;
     JComboBox cbjob;
 
     public AddEmployee() {
@@ -106,9 +106,16 @@ public class AddEmployee extends JFrame implements ActionListener {
         submit = new JButton("Submit");
         submit.setForeground(Color.white);
         submit.setBackground(Color.black);
-        submit.setBounds(200, 430, 150, 30);
+        submit.setBounds(60, 430, 120, 30);
         submit.addActionListener(this);
         add(submit);
+        
+        cancel = new JButton("Cancel");
+        cancel.setForeground(Color.white);
+        cancel.setBackground(Color.black);
+        cancel.setBounds(200, 430, 120, 30);
+        cancel.addActionListener(this);
+        add(cancel);
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/tenth.jpg"));
         Image i2 = i1.getImage().getScaledInstance(450, 450, Image.SCALE_DEFAULT);
@@ -126,6 +133,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource() == submit){
         //Name
         String name = tfname.getText();
         if (name.equals("")) {
@@ -215,8 +223,15 @@ public class AddEmployee extends JFrame implements ActionListener {
             c.s.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Employee Detail Succeffully added");
             setVisible(false);
+            new AddEmployee();
         } catch (Exception e) {
             e.printStackTrace();
         }
+       }
+        else if(ae.getSource() == cancel){
+            setVisible(false);
+            new Dashboard();
+        }
+        
     }
 }
