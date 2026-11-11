@@ -62,7 +62,7 @@ public class AddRooms extends JFrame implements ActionListener{
         tfprice.setBounds(200, 230, 150, 30);
         add(tfprice);
         
-        JLabel lblbedtype = new JLabel("Cleaning Status");
+        JLabel lblbedtype = new JLabel("Bed Type");
         lblbedtype.setFont(new Font("Tahoma",Font.PLAIN,16));
         lblbedtype.setBounds(60, 280, 120, 30);
         add(lblbedtype);
@@ -81,7 +81,7 @@ public class AddRooms extends JFrame implements ActionListener{
         add.addActionListener(this);
         add(add);
         
-        cancel = new JButton("Cancel Room");
+        cancel = new JButton("Cancel");
         cancel.setForeground(Color.WHITE);
         cancel.setBackground(Color.BLACK);
         cancel.setBounds(200, 330, 120, 30);
@@ -98,17 +98,24 @@ public class AddRooms extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == add) {
+            String roomnumber = tfroomno.getText();
+            String availability = (String)cbavailable.getSelectedItem();
+            String cleaning = (String)cbclean.getSelectedItem();
+            String price = tfprice.getText();
+            String bedtype = (String) cbbedtype.getSelectedItem();
             
             try {
                 Conn c = new Conn();
-                
+                String query = "insert into room values('"+roomnumber+"','"+availability+"','"+cleaning+"','"+price+"','"+bedtype+"');";
+                c.s.executeUpdate(query);
+                JOptionPane.showMessageDialog(null, "Room Details Entered Successfully");
+                setVisible(false);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             
         } else if(ae.getSource() == cancel) {
             setVisible(false);
-            new Dashboard();
         }
     }
 }
