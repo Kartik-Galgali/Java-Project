@@ -99,6 +99,13 @@ public class AddRooms extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == add) {
             
+            try {
+                Conn c = new Conn();
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
         } else if(ae.getSource() == cancel) {
             setVisible(false);
             new Dashboard();

@@ -215,7 +215,6 @@ public class AddEmployee extends JFrame implements ActionListener {
             c.s.executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Employee Detail Succeffully added");
             setVisible(false);
-            new Dashboard();
         } catch (Exception e) {
             e.printStackTrace();
         }
