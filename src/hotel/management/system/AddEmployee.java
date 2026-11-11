@@ -128,7 +128,14 @@ public class AddEmployee extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         String name = tfname.getText();
+        if(name.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter your name");
+            return;
+        }
         String age = tfage.getText();
+        if(age.equals("")){
+            JOptionPane.showMessageDialog(null, "Please Enter Your");
+        }
         String salary = tfsalary.getText();
         String phone = tfphone.getText();
         String email = tfemail.getText();
