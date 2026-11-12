@@ -36,7 +36,7 @@ public class Dashboard extends JFrame implements ActionListener {
         mb.add(hotel);
 
         reception = new JMenuItem("Reception");
-        hotel.addActionListener(this);
+        reception.addActionListener(this);
         hotel.add(reception);
 
         JMenu admin = new JMenu("Admin");
