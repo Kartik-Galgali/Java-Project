@@ -112,7 +112,7 @@ public class AddDriver extends JFrame implements ActionListener {
         Image i2 = i1.getImage().getScaledInstance(600, 350, Image.SCALE_DEFAULT);
         i1 = new ImageIcon(i2);
         JLabel image = new JLabel(i1);
-        image.setBounds(400, 70, 500, 300);
+        image.setBounds(400, 60, 500, 330);
         add(image);
 
         setVisible(true);
