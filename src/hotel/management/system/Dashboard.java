@@ -65,13 +65,13 @@ public class Dashboard extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == addemployee) {
+        if (ae.getActionCommand().equals("Add Employee")) {
             new AddEmployee();
-        } else if (ae.getSource() == addrooms) {
+        } else if (ae.getActionCommand().equals("Add Rooms")) {
             new AddRooms();
-        } else if (ae.getSource() == adddrivers) {
+        } else if (ae.getActionCommand().equals("Add Drivers")) {
             new AddDriver();
-        } else if (ae.getSource() == reception) {
+        } else if (ae.getActionCommand().equals("Reception")) {
             new Reception();
         }
     }
